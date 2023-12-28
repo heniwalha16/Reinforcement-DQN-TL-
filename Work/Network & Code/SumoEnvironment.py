@@ -25,12 +25,22 @@ class SumoEnvironment:
 
         # Ensure SUMO_HOME is set
         self._setup_sumo_home()
+        self.state_size = self.define_state_size()
+        self.action_size = self.define_action_size()
 
     def _setup_sumo_home(self):
         if "SUMO_HOME" not in os.environ:
             sys.exit("Please declare the environment variable 'SUMO_HOME'")
         tools = os.path.join(os.environ['SUMO_HOME'], 'tools')
         sys.path.append(tools)
+
+    def define_state_size(self):
+        # Example: If the state includes vehicle count and average speed for each of 3 lanes
+        return 3 * 2  # number of lanes times measurements per lane
+
+    def define_action_size(self):
+        # Example: If you have two possible actions for the traffic light (green and red)
+        return 2
 
     def reset(self):
             # Start a new SUMO simulation
