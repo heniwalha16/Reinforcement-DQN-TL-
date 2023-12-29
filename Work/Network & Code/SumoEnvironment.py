@@ -17,11 +17,11 @@ class SumoEnvironment:
                               "E6_2"]
 
         # Ramp lane from your network (if any)
-        # Assuming "E3_0" is the ramp lane based on your network structure; replace with the actual ramp lane ID if different
+        # "E3_0" is the ramp lane based on our network structure; replace with the actual ramp lane ID if different
         self.ramp_lane = "E3_0"
 
         # Traffic light ID at the ramp
-        self.traffic_light_id = "J6"  # Based on your network, assuming J6 is the traffic light ID
+        self.traffic_light_id = "J6"  # Based on our network,  J6 is the traffic light ID
 
         # Ensure SUMO_HOME is set
         self._setup_sumo_home()
